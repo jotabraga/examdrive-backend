@@ -1,4 +1,4 @@
-
+import "./setup";
 import app, { init } from "./app";
 
 init().then(() => {
