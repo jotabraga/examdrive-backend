@@ -1,6 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import Test from "./Test";
 import Team from "./Team";
+import Term from "./Term";
+import { TreeMetadataArgs } from "typeorm/metadata-args/TreeMetadataArgs";
 
 @Entity('subjects')
 export default class Subject {
@@ -11,7 +13,10 @@ export default class Subject {
   name: string;
 
   @Column()
-  period: string;
+  termId: number;
+
+  @ManyToOne(() => Term, term => term.subjects)
+  term: Term;
 
   teams: Team[];
 

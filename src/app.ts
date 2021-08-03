@@ -25,6 +25,5 @@ app.get("/subject-tests/:subjectId", testsController.getSubjectTests);
 
 app.get("/professor-tests/:professorId", testsController.getProfessorTests);
 
-app.get("/test/:id", testsController.getTestById);
 
 export default app;

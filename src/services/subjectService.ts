@@ -4,7 +4,7 @@ import Subject from "../entities/Subject";
 interface Subjects {
     id: number,
     name: string,
-    period: string
+    termId: number
 }
 
 export async function getSubjectsList():Promise<Subjects[]>{

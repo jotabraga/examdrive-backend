@@ -17,12 +17,6 @@ export async function getProfessorTests(req: Request, res: Response){
     res.send(result);
 }
 
-export async function getTestById(req: Request, res: Response){
 
-    const id = parseInt(req.params.id);
-
-    const result = await testServices.getTestById(id);
-    res.send(result);
-}
 
 

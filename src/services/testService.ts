@@ -5,7 +5,7 @@ interface Tests{
     id: number,
     professorId: number,
     subjectId: number,
-    category: string,
+    categoryId: number,
     link: string,
     name: string
 }
@@ -34,11 +34,4 @@ export async function getTestsByProfessor(professorId: number):Promise<Tests[]>{
         }
     });    
     return tests;
-}
-
-export async function getTestById(id: number):Promise<Tests[]>{
-
-    const testRepository = getRepository(Test);
-    const test = await testRepository.find({ id });
-    return test;
 }
