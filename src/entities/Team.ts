@@ -2,8 +2,8 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
 import Subject from "./Subject";
 import Professor from "./Professor";
 
-@Entity('classes')
-export default class Class {
+@Entity('teams')
+export default class Team {
   @PrimaryGeneratedColumn()
   id: number;
   
@@ -13,9 +13,9 @@ export default class Class {
   @Column()
   subjectId: number;
 
-  @ManyToOne(() => Subject, subject => subject.classes)
+  @ManyToOne(() => Subject, subject => subject.teams)
   subject: Subject;
 
-  @ManyToOne(() => Professor, professor => professor.classes)
+  @ManyToOne(() => Professor, professor => professor.teams)
   professor: Professor;
 }

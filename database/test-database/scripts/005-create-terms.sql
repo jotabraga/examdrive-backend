@@ -1,0 +1,4 @@
+CREATE TABLE "terms" (
+  "id" SERIAL PRIMARY KEY,
+  "number" INTEGER NOT NULL
+);

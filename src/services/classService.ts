@@ -1,5 +1,5 @@
 import { getRepository} from "typeorm";
-import Class from "../entities/Class";
+import Team from "../entities/Team";
 
 interface Classes {
     id: number,
@@ -9,7 +9,7 @@ interface Classes {
 
 export async function getClassesList():Promise<Classes[]>{
 
-    const classes = await getRepository(Class).find();
+    const teams = await getRepository(Team).find();
 
-    return classes;
+    return teams;
 }

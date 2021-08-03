@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import Test from "./Test";
-import Class from "./Class";
+import Team from "./Team";
 
 @Entity('subjects')
 export default class Subject {
@@ -13,7 +13,7 @@ export default class Subject {
   @Column()
   period: string;
 
-  classes: Class[];
+  teams: Team[];
 
   tests: Test[];
 }

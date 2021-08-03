@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import Class from "./Class";
+import Team from "./Team";
 import Test from "./Test";
 
 @Entity('professors')
@@ -10,7 +10,7 @@ export default class Professor {
   @Column()
   name: string;
 
-  classes: Class[];
+  teams: Team[];
 
   tests: Test[];
 }
