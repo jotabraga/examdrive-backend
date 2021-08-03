@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import Test from "./Test";
 import Class from "./Class";
 
@@ -13,7 +13,7 @@ export default class Subject {
   @Column()
   period: string;
 
-  tests: Test[];
-
   classes: Class[];
+
+  tests: Test[];
 }

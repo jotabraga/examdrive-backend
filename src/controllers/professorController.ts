@@ -4,6 +4,14 @@ import * as professorService from "../services/professorService";
 
 export async function listProfessors(req: Request, res: Response){
 
-    const result = await professorService.getProfessorsList();
-    res.send(result);
+    try{
+        const result = await professorService.getProfessorsList();
+        res.send(result);
+
+    } catch (error){
+        console.log(error);
+        res.sendStatus(500);
+    }
+
+
 }
