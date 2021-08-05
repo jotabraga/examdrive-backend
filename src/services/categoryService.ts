@@ -1,12 +1,9 @@
 import { getRepository} from "typeorm";
 import Category from "../entities/Category";
-
-interface Categories {
-    id: number,
-    name: string
-}
+import { Categories } from "../interfaces/Categories";
 
 export async function getCategories():Promise<Categories[]>{
+    
     const categories = await getRepository(Category).find();
     return categories;
 }

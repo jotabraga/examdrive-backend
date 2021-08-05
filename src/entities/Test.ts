@@ -26,8 +26,8 @@ export default class Test {
   @ManyToOne(() => Subject, subject => subject.tests)
   subject: Subject;
 
-  @ManyToOne(() => Professor, professor => professor.tests)
-  professor: Professor;
+  @ManyToOne(() => Professor, (professor) => professor.id)
+  professor!: Professor;
 
   @ManyToOne(() => Category, category => category.tests)
   category: Category;

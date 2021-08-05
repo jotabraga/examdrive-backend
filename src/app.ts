@@ -20,9 +20,9 @@ app.get("/subjects", subjectController.listSubjects);
 
 app.get("/professors", professorController.listProfessors);
 
-app.get("/categories", categoryController.getCategories)
+app.get("/categories", categoryController.getCategories);
 
-app.get("/professors/:subjectId", professorController.getProfessorsBySubjectId)
+app.get("/professors/:subjectId", professorController.getProfessorsBySubjectId);
 
 app.get("/classes/:subjectId", classController.getSubjectClasses);
 

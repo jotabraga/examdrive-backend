@@ -4,6 +4,11 @@ import * as subjectService from "../services/subjectService";
 
 export async function listSubjects(req: Request, res: Response){
 
-    const result = await subjectService.getSubjectsList();
-    res.send(result);
+    try{
+        const subjects = await subjectService.getSubjectsList();
+        res.status(200).send(subjects);
+    
+    }catch (err){
+        console.log(err);
+    }
 }

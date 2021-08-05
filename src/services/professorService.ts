@@ -1,20 +1,21 @@
 import { getRepository} from "typeorm";
 import Team from "../entities/Team";
-import Professor from "../entities/Professor"
+import Professor from "../entities/Professor";
 
-interface Professors {
-    id: number,
-    name: string
-}
+export async function getProfessorsList(){
 
-export async function getProfessorsList():Promise<Professors[]>{
-
-    const professors = await getRepository(Professor).find();
+    const professors = await getRepository(Professor)
+        .createQueryBuilder("professors")
+        .select("professors")
+        .leftJoin("professors.tests", "tests")
+        .loadRelationCountAndMap("professors.testsCount", "professors.tests")
+        .orderBy("professors.name")
+        .getMany();
 
     return professors;
 }
 
-export async function getProfessorsBySubjectId(subjectId: number):Promise<Professors[]>{
+export async function getProfessorsBySubjectId(subjectId: number){
 
     const classes = await getRepository(Team).find({
         where: { subjectId },
@@ -22,6 +23,5 @@ export async function getProfessorsBySubjectId(subjectId: number):Promise<Profes
     });
 
     const professors = classes.map((c) => c.professor);
-
     return professors;
 }

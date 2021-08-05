@@ -1,14 +1,6 @@
 import { getRepository } from "typeorm";
 import Test from "../entities/Test";
-
-interface Tests{
-    id: number,
-    professorId: number,
-    subjectId: number,
-    categoryId: number,
-    link: string,
-    name: string
-}
+import { Tests, TestBody} from "../interfaces/Test";
 
 export async function getTestsBySubject(subjectId: number):Promise<Tests[]>{
 
@@ -37,33 +29,7 @@ export async function getTestsByProfessor(professorId: number):Promise<Tests[]>{
 }
 
 export async function registerTest(body: TestBody){
-
-    const {professorId, subjectId, categoryId, link, name} = body;
-    console.log(body);
-
-    const testRepository = await getRepository(Test)
-        .createQueryBuilder()
-        .insert()
-        .into(Test)
-        .values([
-            {
-                professorId,
-                subjectId,
-                categoryId,
-                link,
-                name
-            }
-        ]) 
-        .returning("id")
-        .execute();
-        
-    return testRepository;
+    await getRepository(Test).insert(body);
 }
 
-interface TestBody{
-    professorId: number,
-    subjectId: number,
-    categoryId: number,
-    link: string,
-    name: string
-}
+

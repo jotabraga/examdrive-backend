@@ -1,11 +1,6 @@
 import { getRepository} from "typeorm";
 import Subject from "../entities/Subject";
-
-interface Subjects {
-    id: number,
-    name: string,
-    termId: number
-}
+import { Subjects } from "../interfaces/Subjects";
 
 export async function getSubjectsList():Promise<Subjects[]>{
 

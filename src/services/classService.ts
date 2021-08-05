@@ -1,11 +1,6 @@
 import { getRepository} from "typeorm";
 import Team from "../entities/Team";
-
-interface Classes {
-    id: number,
-    professorId: number,
-    subjectId: number
-}
+import { Classes } from "../interfaces/Classes";
 
 export async function getSubjectClasses(id: number):Promise<Classes[]>{
 

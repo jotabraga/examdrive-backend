@@ -4,8 +4,14 @@ import * as classService from "../services/classService";
 
 export async function getSubjectClasses(req: Request, res: Response){
 
-    const id = parseInt(req.params.subjectId);
+    try{
+        const id = parseInt(req.params.subjectId);
+        const classes = await classService.getSubjectClasses(id);
 
-    const result = await classService.getSubjectClasses(id);
-    res.send(result);
+        if(!classes) return res.sendStatus(404);
+        res.status(200).send(classes);   
+
+    }catch (err) {
+        console.log(err);
+    }
 }
