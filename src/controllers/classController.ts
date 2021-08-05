@@ -2,8 +2,10 @@ import { Request, Response } from "express";
 
 import * as classService from "../services/classService";
 
-export async function listClasses(req: Request, res: Response){
+export async function getSubjectClasses(req: Request, res: Response){
 
-    const result = await classService.getClassesList();
+    const id = parseInt(req.params.subjectId);
+
+    const result = await classService.getSubjectClasses(id);
     res.send(result);
 }

@@ -35,3 +35,35 @@ export async function getTestsByProfessor(professorId: number):Promise<Tests[]>{
     });    
     return tests;
 }
+
+export async function registerTest(body: TestBody){
+
+    const {professorId, subjectId, categoryId, link, name} = body;
+    console.log(body);
+
+    const testRepository = await getRepository(Test)
+        .createQueryBuilder()
+        .insert()
+        .into(Test)
+        .values([
+            {
+                professorId,
+                subjectId,
+                categoryId,
+                link,
+                name
+            }
+        ]) 
+        .returning("id")
+        .execute();
+        
+    return testRepository;
+}
+
+interface TestBody{
+    professorId: number,
+    subjectId: number,
+    categoryId: number,
+    link: string,
+    name: string
+}

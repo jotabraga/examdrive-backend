@@ -17,6 +17,14 @@ export async function getProfessorTests(req: Request, res: Response){
     res.send(result);
 }
 
+export async function registerTest(req: Request, res: Response){  
+
+    const result = await testServices.registerTest(req.body);
+    res.send(result);
+}
+
+
+
 
 
 

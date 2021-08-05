@@ -9,7 +9,11 @@ interface Subjects {
 
 export async function getSubjectsList():Promise<Subjects[]>{
 
-    const subjects = await getRepository(Subject).find();
+    const subjects = await getRepository(Subject).find({
+        order: {
+            termId: "ASC",
+        },
+    });
 
     return subjects;
 }

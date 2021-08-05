@@ -3,9 +3,10 @@ import cors from "cors";
 import "reflect-metadata";
 import connectDatabase from "./database";
 import * as subjectController from "./controllers/subjectController";
-import * as testsController from "./controllers/testController";
+import * as testController from "./controllers/testController";
 import * as professorController from "./controllers/professorController";
 import * as classController from "./controllers/classController";
+import * as categoryController from "./controllers/categoryController"
 
 const app = express();
 app.use(cors());
@@ -19,11 +20,17 @@ app.get("/subjects", subjectController.listSubjects);
 
 app.get("/professors", professorController.listProfessors);
 
-app.get("/classes", classController.listClasses);
+app.get("/categories", categoryController.getCategories)
 
-app.get("/subject-tests/:subjectId", testsController.getSubjectTests);
+app.get("/professors/:subjectId", professorController.getProfessorsBySubjectId)
 
-app.get("/professor-tests/:professorId", testsController.getProfessorTests);
+app.get("/classes/:subjectId", classController.getSubjectClasses);
+
+app.get("/subject-tests/:subjectId", testController.getSubjectTests);
+
+app.get("/professor-tests/:professorId", testController.getProfessorTests);
+
+app.post("/register-test", testController.registerTest);
 
 
 export default app;

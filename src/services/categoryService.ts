@@ -6,9 +6,7 @@ interface Categories {
     name: string
 }
 
-export async function getTestCategories():Promise<Categories[]>{
-
+export async function getCategories():Promise<Categories[]>{
     const categories = await getRepository(Category).find();
-
     return categories;
 }
