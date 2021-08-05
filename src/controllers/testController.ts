@@ -3,24 +3,44 @@ import * as testServices from "../services/testService";
 
 export async function getSubjectTests(req: Request, res: Response){
 
-    const id = parseInt(req.params.subjectId);
+    try{
+        const id = parseInt(req.params.subjectId);
+        const tests = await testServices.getTestsBySubject(id);
+    
+        if(!tests) return res.sendStatus(404);
+        res.status(200).send(tests);
 
-    const result = await testServices.getTestsBySubject(id);
-    res.send(result);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export async function getProfessorTests(req: Request, res: Response){
 
-    const id = parseInt(req.params.professorId);
+    try{
+        const id = parseInt(req.params.professorId);
+        const tests = await testServices.getTestsByProfessor(id);
 
-    const result = await testServices.getTestsByProfessor(id);
-    res.send(result);
+        if(!tests) return res.sendStatus(404);
+        res.status(200).send(tests);
+
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export async function registerTest(req: Request, res: Response){  
 
-    const result = await testServices.registerTest(req.body);
-    res.send(result);
+    try{
+        const {professorId, subjectId, categoryId, link, name} = req.body;
+        if(!professorId || !subjectId || !categoryId || !link || !name ) return res.sendStatus(400);
+
+        await testServices.registerTest(req.body);
+        res.sendStatus(201);
+    
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 
