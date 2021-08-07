@@ -20,7 +20,7 @@ export async function getTestsByProfessor(professorId: number):Promise<Tests[]>{
     const testRepository = getRepository(Test);
     const tests = await testRepository.find({ 
         select: ["id","subjectId","category","name","link"],
-        relations: ["professor","subject"],
+        relations: ["professor","subject","category"],
         where: {
             professorId,
         }
