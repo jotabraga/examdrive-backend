@@ -7,7 +7,7 @@ export async function getTestsBySubject(subjectId: number):Promise<Tests[]>{
     const testRepository = getRepository(Test);
     const tests = await testRepository.find({ 
         select: ["id","subjectId","category","name","link"],
-        relations: ["professor","subject"],
+        relations: ["professor","subject","category"],
         where: {
             subjectId: subjectId,
         }
