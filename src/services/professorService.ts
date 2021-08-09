@@ -2,7 +2,7 @@ import { getRepository} from "typeorm";
 import Team from "../entities/Team";
 import Professor from "../entities/Professor";
 
-export async function getProfessorsList(){
+export async function getAll(){
 
     const professors = await getRepository(Professor)
         .createQueryBuilder("professors")
