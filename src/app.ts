@@ -16,9 +16,9 @@ export async function init (){
   await connectDatabase();
 }
 
-app.get("/subjects", subjectController.listSubjects);
+app.get("/subjects", subjectController.getAllSubjects);
 
-app.get("/professors", professorController.listProfessors);
+app.get("/professors", professorController.getAllProfessors);
 
 app.get("/categories", categoryController.getCategories);
 

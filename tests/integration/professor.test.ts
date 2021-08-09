@@ -17,7 +17,7 @@ describe('GET /professors',()=>{
     it('should answer with a professors array for a valid request', async ()=>{
         await insertProfessors();
         const response = await supertest(app).get("/professors");
-        expect(response.body.lenght).toEqual(4);
+        expect(response.body.lenght).toEqual(5);
     }) 
     it('should answer with status 404 for no professors in database', async ()=>{
         const response = await supertest(app).get("/professors");

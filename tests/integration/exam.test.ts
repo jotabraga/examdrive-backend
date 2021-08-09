@@ -5,7 +5,7 @@ import { clearDatabase, endConnection, startConnection } from "../utils/database
 import { insertCategories } from "../factories/categoryFactory";
 import { insertSubjects } from "../factories/subjectFactory";
 import { insertProfessors } from "../factories/professorFactory";
-import { createTest, populateTests, prepareDatabaseTests } from "../factories/testFactory";
+import {   prepareDatabaseTests } from "../factories/testFactory";
 
 beforeAll(startConnection);
 afterAll(endConnection);
