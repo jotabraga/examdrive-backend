@@ -11,7 +11,7 @@ export async function endConnection(){
 export async function clearDatabase(){
     await getManager().query('TRUNCATE categories RESTART IDENTITY CASCADE');
     await getManager().query('TRUNCATE professors RESTART IDENTITY CASCADE');
-    await getManager().query('TRUNCATE sujects RESTART IDENTITY CASCADE');
+    await getManager().query('TRUNCATE subjects RESTART IDENTITY CASCADE');
     await getManager().query('TRUNCATE teams RESTART IDENTITY CASCADE');
     await getManager().query('TRUNCATE terms RESTART IDENTITY CASCADE');
     await getManager().query('TRUNCATE tests RESTART IDENTITY CASCADE');
