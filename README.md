@@ -21,7 +21,7 @@ The following tools and frameworks were used in the construction of the project:
 ## How to run
 1. Clone this repository
 2. Clone the [front-end repository](https://github.com/jotabraga/examdrive-frontend)
-3. Follow instructions to run [front-end](https://github.com/jotabraga/examdrive-frontend)
+3. Follow instructions to run [front-end](https://github.com/jotabraga/examdrive-frontend#readme)
 4. Create a database using ``migrations`` 
 - 4.1 Enter to postgres terminal
 ```bash
