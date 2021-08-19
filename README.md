@@ -34,7 +34,7 @@ CREATE DATABASE [database_name];
 ```
 - 4.3 Insert your database info at ``.env file`` as the following example
 ```bash
-DATABASE_URL='postgres://postgres:PASSWORD@localhost:5432/DATABASE_NAME'
+DATABASE_URL='postgres://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME'
 ```
 - 4.5 Finally, you can run migrations to create the tables
 ```bash
