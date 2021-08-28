@@ -22,29 +22,30 @@ The following tools and frameworks were used in the construction of the project:
 1. Clone this repository
 2. Clone the [front-end repository](https://github.com/jotabraga/examdrive-frontend)
 3. Follow instructions to run [front-end](https://github.com/jotabraga/examdrive-frontend#readme)
-4. Create a database using ``migrations`` 
-- 4.1 Enter to postgres terminal
+4. Install dependencies
+```bash
+npm i
+```
+5. Create a database using ``migrations`` 
+- 5.1 Enter to postgres terminal
 ```bash
 sudo su postgres
 psql postgres
 ```
-- 4.2 Create a database
+- 5.2 Create a database
 ```bash
 CREATE DATABASE [database_name];
 ```
-- 4.3 Insert your database info at ``.env file`` as the following example
+- 5.3 Insert your database info at ``.env file`` as the following example
 ```bash
 DATABASE_URL='postgres://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME'
 ```
-- 4.5 Finally, you can run migrations to create the tables
+- 5.4 Finally, you can run migrations to create the tables
 ```bash
 npm run build
 npm run typeorm migration: run
 ```
-5. Install dependencies
-```bash
-npm i
-```
+
 6. Run the back-end with
 ```bash
 npm start
