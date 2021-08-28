@@ -1,6 +1,10 @@
 import supertest from "supertest";
 import app from "../../src/app";
-import {startConnection, clearDatabase, endConnection} from "../utils/database";
+import {
+  startConnection,
+  clearDatabase,
+  endConnection,
+} from "../utils/database";
 import * as categoryFactory from "../factories/categoryFactory";
 
 beforeAll(startConnection);

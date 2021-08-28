@@ -1,12 +1,16 @@
 import "../../src/setup";
 import supertest from "supertest";
 import app from "../../src/app";
-import { clearDatabase, endConnection, startConnection } from "../utils/database";
+import {
+  clearDatabase,
+  endConnection,
+  startConnection,
+} from "../utils/database";
 import { insertSubjects } from "../factories/subjectFactory";
 
 beforeAll(startConnection);
 afterAll(endConnection);
-beforeEach(clearDatabase)
+beforeEach(clearDatabase);
 
 describe("GET /subjects", () => {
   it("should answer status 200 for a valid requisition", async () => {

@@ -6,7 +6,8 @@ export async function getAllProfessors(req: Request, res: Response){
 
     try{
         const professors = await professorService.getAll();
-        if(!professors) return res.status(404);
+        if(!professors) return res.sendStatus(404);
+        if(professors.length === 0) return res.sendStatus(404);
         res.status(200).send(professors);
 
     } catch (err){
