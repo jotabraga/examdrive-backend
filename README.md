@@ -8,6 +8,8 @@ API for register and get subjects and professors exams and materials.
 - [x] Get professor tests
 ### Future improvements 🔮
 - [ ] Register new subject / professor
+- [ ] Delete tests
+- [ ] Add college info
 ## Tech tools :wrench:
 The following tools and frameworks were used in the construction of the project:<br>
 <p>
